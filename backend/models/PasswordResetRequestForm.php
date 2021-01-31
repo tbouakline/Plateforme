@@ -1,5 +1,5 @@
 <?php
-namespace frontend\models;
+namespace backend\models;
 
 use Yii;
 use yii\base\Model;
@@ -24,9 +24,16 @@ class PasswordResetRequestForm extends Model
             ['email', 'email'],
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
-                'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => 'There is no user with this email address.'
+                'filter' => ['status' => User::STATUS_ACTIVE, 'type_user' => 'ADMINISTRATEUR',],
+                'message' => 'Il n\'y a aucun utilisateur avec cette adresse Email.'
             ],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'email' => 'Email',
         ];
     }
 
@@ -41,9 +48,10 @@ class PasswordResetRequestForm extends Model
         $user = User::findOne([
             'status' => User::STATUS_ACTIVE,
             'email' => $this->email,
+            'type_user' => 'ADMINISTRATEUR',
         ]);
 
-        if (!$user) {
+        if (empty($user)) {
             return false;
         }
         
@@ -60,9 +68,9 @@ class PasswordResetRequestForm extends Model
                 ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
                 ['user' => $user]
             )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->setFrom([Yii::$app->params['supportEmail'] => 'Plateforme Entreprise'])
             ->setTo($this->email)
-            ->setSubject('Password reset for ' . Yii::$app->name)
+            ->setSubject('Réinitialisation du mot de passe')
             ->send();
     }
 }

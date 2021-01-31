@@ -34,7 +34,7 @@ public $image;
            
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
-            [['image'], 'file','extensions' => 'png, jpg'],
+            [['photo'], 'file','extensions' => 'png, jpg'],
         ];
     }
     public function attributeLabels()

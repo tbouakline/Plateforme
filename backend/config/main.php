@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'language' => 'fr-FR',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
@@ -15,7 +16,6 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
-            
         ],
         'user' => [
             'identityClass' => 'common\models\User',

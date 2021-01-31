@@ -1,5 +1,5 @@
 <?php
-namespace frontend\models;
+namespace backend\models;
 
 use yii\base\InvalidArgumentException;
 use yii\base\Model;
@@ -11,6 +11,7 @@ use common\models\User;
 class ResetPasswordForm extends Model
 {
     public $password;
+    public $confirm_password;
 
     /**
      * @var \common\models\User
@@ -28,11 +29,11 @@ class ResetPasswordForm extends Model
     public function __construct($token, $config = [])
     {
         if (empty($token) || !is_string($token)) {
-            throw new InvalidArgumentException('Password reset token cannot be blank.');
+            throw new InvalidArgumentException('Le jeton de réinitialisation du mot de passe ne peut pas être vide.');
         }
         $this->_user = User::findByPasswordResetToken($token);
-        if (!$this->_user) {
-            throw new InvalidArgumentException('Wrong password reset token.');
+        if (empty($this->_user)) {
+            throw new InvalidArgumentException('Jeton de réinitialisation de mot de passe incorrect.');
         }
         parent::__construct($config);
     }
@@ -44,7 +45,17 @@ class ResetPasswordForm extends Model
     {
         return [
             ['password', 'required'],
+            ['confirm_password', 'required'],
             ['password', 'string', 'min' => 6],
+            ['confirm_password', 'compare', 'compareAttribute'=>'password', 'skipOnEmpty' => false, 'message'=>"Confirmation érronée",],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'password' => 'Nouveau mot de passe',
+            'confirm_password' => 'Confirmation du nouveau mot de passe',
         ];
     }
 

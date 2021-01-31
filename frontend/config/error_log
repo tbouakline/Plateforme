@@ -1,0 +1,2 @@
+[19-Nov-2020 12:58:23 UTC] PHP Notice:  Use of undefined constant YII_ENV_TEST - assumed 'YII_ENV_TEST' in /home/sps/public_html/plateform/frontend/config/main-local.php on line 12
+[19-Nov-2020 12:58:34 UTC] PHP Notice:  Use of undefined constant YII_DEBUG - assumed 'YII_DEBUG' in /home/sps/public_html/plateform/frontend/config/main.php on line 43

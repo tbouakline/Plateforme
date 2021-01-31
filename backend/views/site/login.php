@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Identifiez-vous pour ouvrir une session</p>
 
       <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
         <div >
@@ -34,9 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
           <div class="col-8">
             <div class="icheck-primary">
             <?= $form->field($model, 'rememberMe')->checkbox() ?>
-              <label for="remember">
-                Remember Me
-              </label>
             </div>
           </div>
           <!-- /.col -->
@@ -48,23 +45,12 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
       </form>
       <?php ActiveForm::end(); ?>
-      <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
-      <!-- /.social-auth-links -->
-
+      
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a href="index.php?r=site/reset-password-request">J'ai oublié le mot de passe</a>
       </p>
-      <p class="mb-0">
-        <a href="index.php?r=site/signup" class="text-center">Ouvrir un compte</a>
-      </p>
+
+      
     </div>
     <!-- /.login-card-body -->
   </div>

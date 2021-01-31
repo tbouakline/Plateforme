@@ -36,7 +36,14 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
 <?php 
-if (Yii::$app->controller->action->id === 'login') { 
+if (
+  (Yii::$app->controller->action->id === 'login')
+  ||
+  (Yii::$app->controller->action->id === 'reset-password-request')
+  ||
+  (Yii::$app->controller->action->id === 'reset-password')
+  ) 
+{ 
   ?>
     <body  class="login-page" style="min-height: 459.2px;">
     <?= $content ?>

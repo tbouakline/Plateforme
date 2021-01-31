@@ -1,0 +1,5 @@
+[21-Nov-2020 21:47:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sps/public_html/plateform/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php on line 122
+[23-Nov-2020 18:33:29 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/sps/public_html/plateform/common/config/main-local.php on line 35
+[23-Nov-2020 18:38:22 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/sps/public_html/plateform/common/config/main-local.php on line 35
+[23-Nov-2020 19:13:52 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ']' in /home/sps/public_html/plateform/common/config/main-local.php on line 26
+[23-Nov-2020 20:49:38 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/sps/public_html/plateform/common/config/main-local.php on line 34
